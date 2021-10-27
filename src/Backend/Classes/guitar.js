@@ -1,11 +1,12 @@
+const { v4: uuidv4 } = require('uuid');
 class ClassicGuitar {
   #id;
-  constructor(manufactureYear, brand, price, numberOfString = 6, id) {
+  constructor(manufactureYear, brand, price, numberOfString = 6) {
     this.manufactureYear = manufactureYear;
     this.brand = brand;
     this.price = price;
     this.numberOfString = numberOfString;
-    this.#id = id;
+    this.#id = uuidv4();
     this.used = false;
   }
   play() {
@@ -76,7 +77,10 @@ class BassGuitar extends ClassicGuitar {
     this.price = this.price * 0.8;
   }
 }
-const justGuitar = new ClassicGuitar(1978, 'Fender', 345, 6, 5)
-const elayGuitar = new BassGuitar(1978, 'Fender', 345, 6, 5);
-const abaGuitar = new BassGuitar(1978, 'Fender', 345, 6, 6);
-const fender = new ElectricGuitar(1978, 'Fender', 345, 6, 7);
+const justGuitar = new ClassicGuitar(1978, 'Fender', 345, 6)
+
+function newClassicGuitar(manufactureYear, brand, price, numberOfString = 6,) {
+  return new ClassicGuitar(manufactureYear, brand, price, numberOfString = 6);
+}
+
+module.exports.newClassicGuitar = newClassicGuitar

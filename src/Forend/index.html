@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="./main.js" defer></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,15 +25,11 @@
   </div>
   <div id="SellPage" class="text-center">
     <h2>Sell your Guitar</h2>
-    <select class="form-select form-select-lg mb-3" aria-label="Select type of Guitar">
+    <select id="selectGuitarType" class="form-select form-select-lg mb-3" aria-label="Select type of Guitar">
       <option value="classic" selected>Clasic Guitar</option>
       <option value="bass">Bass Guitar</option>
       <option value="electric">Electric Guitar</option>
     </select>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputKindGuitar" placeholder="Elay Gelbart">
-      <label for="floatingInputKindGuitar">Kind of Guitar</label>
-    </div>
     <div class="form-floating mb-3">
       <input type="text" class="form-control" id="floatingInputYear" placeholder="Elay Gelbart">
       <label for="floatingInputYear">Year of Manufacture</label>
@@ -50,9 +47,10 @@
       <label for="floatingInputNumOfString">Number of Strings</label>
     </div>
     <div>
-      <label for="formFileLg" class="form-label">Select Guitar Pic</label>
+      <label for="formFileLg" class="form-label mb-3">Select Guitar Pic</label>
       <input class="form-control form-control-lg" id="formFileLg" type="file">
     </div>
+    <button id="sellSubmitBtn" type="button" class="btn btn-outline-warning">Submit</button>
   </div>
   </div>
 </body>
