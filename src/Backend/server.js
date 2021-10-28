@@ -17,17 +17,38 @@ app.use(express.urlencoded({ extended: true })) // for parsing routerlication/x-
 app.post('/sell/:type', async (req, res, next) => {
   const type = req.params.type;
   const guitarProps = JSON.parse(req.body.data);
-  const guitarNewClass = guitarClass.newClassicGuitar(guitarProps.manufactureYear, guitarProps.brand, guitarProps.price, guitarProps.numOfString);
+  let guitarNewClass;
+  if (type == 'classic') {
+    guitarNewClass = guitarClass.newClassicGuitar(guitarProps.manufactureYear, guitarProps.brand, guitarProps.price, guitarProps.numOfString);
+  }
+  else if (type == 'bass') {
+    console.log("in Bass");
+    guitarNewClass = guitarClass.newBassGuitar(guitarProps.manufactureYear, guitarProps.brand, guitarProps.price, guitarProps.numOfString);
+  }
+  else if (type == 'electric') {
+    guitarNewClass = guitarClass.newElectricGuitar(guitarProps.manufactureYear, guitarProps.brand, guitarProps.price, guitarProps.numOfString);
+  }
+  else {
+    return;
+  }
   try {
-    console.log(guitarNewClass);
+    // guitarNewClass.picture = guitarProps.picture;
     fs.writeFileSync(`../guitars4Sell/${guitarNewClass.id}.json`, JSON.stringify(guitarNewClass));
+    res.send(guitarNewClass.id)
     console.log("yay");
   } catch (err) {
     console.log("failed");
     next(err)
   }
 });
-
+app.get('/guitars', async (req, res, next) => {
+  const guitarDirArr = fs.readdirSync('../guitars4Sell')
+  let guitarObjArr = [];
+  for (let value of guitarDirArr) {
+    guitarObjArr.push(fs.readFileSync(`../guitars4Sell/${value}`, "utf-8"))
+  }
+  res.send(guitarObjArr);
+})
 
 app.use(function errorHandler(err, req, res, next) {
   if (err.status) {

@@ -79,8 +79,16 @@ class BassGuitar extends ClassicGuitar {
 }
 const justGuitar = new ClassicGuitar(1978, 'Fender', 345, 6)
 
-function newClassicGuitar(manufactureYear, brand, price, numberOfString = 6,) {
-  return new ClassicGuitar(manufactureYear, brand, price, numberOfString = 6);
+function newClassicGuitar(manufactureYear, brand, price, numberOfString) {
+  return new ClassicGuitar(manufactureYear, brand, price, numberOfString);
+}
+function newBassGuitar(manufactureYear, brand, price, numberOfString) {
+  return new BassGuitar(manufactureYear, brand, price, numberOfString);
+}
+function newElectricGuitar(manufactureYear, brand, price, numberOfString) {
+  return new ElectricGuitar(manufactureYear, brand, price, numberOfString);
 }
 
 module.exports.newClassicGuitar = newClassicGuitar
+module.exports.newBassGuitar = newBassGuitar
+module.exports.newElectricGuitar = newElectricGuitar

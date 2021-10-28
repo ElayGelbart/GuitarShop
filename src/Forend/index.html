@@ -16,42 +16,72 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>Guitar Shop</title>
   <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/hobby-2/64/guitar-play-music-instrument-512.png">
+  <style>
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  </style>
 </head>
 
 <body class="text-center">
   <h1>Guitar4U - Sell And Buy Guitars</h1>
-  <div id="BuyPage">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="Sell-tab" data-bs-toggle="tab" data-bs-target="#Sell" type="button" role="tab"
+        aria-controls="Sell" aria-selected="true">Sell</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="Buy-tab" data-bs-toggle="tab" data-bs-target="#Buy" type="button" role="tab"
+        aria-controls="Buy" aria-selected="false">Buy</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button"
+        role="tab" aria-controls="messages" aria-selected="false">Messages</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button"
+        role="tab" aria-controls="settings" aria-selected="false">Settings</button>
+    </li>
+  </ul>
 
-  </div>
-  <div id="SellPage" class="text-center">
-    <h2>Sell your Guitar</h2>
-    <select id="selectGuitarType" class="form-select form-select-lg mb-3" aria-label="Select type of Guitar">
-      <option value="classic" selected>Clasic Guitar</option>
-      <option value="bass">Bass Guitar</option>
-      <option value="electric">Electric Guitar</option>
-    </select>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputYear" placeholder="Elay Gelbart">
-      <label for="floatingInputYear">Year of Manufacture</label>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="Sell" role="tabpanel" aria-labelledby="Sell-tab">
+      <h2>Sell your Guitar</h2>
+      <select id="selectGuitarType" class="form-select form-select-lg mb-3" aria-label="Select type of Guitar">
+        <option value="classic" selected>Classic Guitar</option>
+        <option value="bass">Bass Guitar</option>
+        <option value="electric">Electric Guitar</option>
+      </select>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputYear" placeholder="Elay Gelbart">
+        <label for="floatingInputYear">Year of Manufacture</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputBrand" placeholder="Elay Gelbart">
+        <label for="floatingInputBrand">Brand</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputPrice" placeholder="Elay Gelbart">
+        <label for="floatingInputPrice">Price</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputNumOfString" placeholder="Elay Gelbart">
+        <label for="floatingInputNumOfString">Number of Strings</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input class="form-control form-control-lg" id="formFileLg" type="file">
+      </div>
+      <button id="sellSubmitBtn" type="button" class="btn btn-outline-warning">Submit</button>
     </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputBrand" placeholder="Elay Gelbart">
-      <label for="floatingInputBrand">Brand</label>
+    <div class="tab-pane" id="Buy" role="tabpanel" aria-labelledby="Buy-tab">
+      <h2>Welcome To Buy Page</h2>
+      <div id="BuyPort" class="row row-cols-1 row-cols-md-5 g-4">Guitar Wha wHA</div>
     </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputPrice" placeholder="Elay Gelbart">
-      <label for="floatingInputPrice">Price</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInputNumOfString" placeholder="Elay Gelbart">
-      <label for="floatingInputNumOfString">Number of Strings</label>
-    </div>
-    <div>
-      <label for="formFileLg" class="form-label mb-3">Select Guitar Pic</label>
-      <input class="form-control form-control-lg" id="formFileLg" type="file">
-    </div>
-    <button id="sellSubmitBtn" type="button" class="btn btn-outline-warning">Submit</button>
-  </div>
+    <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+    <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">...</div>
   </div>
 </body>
 
